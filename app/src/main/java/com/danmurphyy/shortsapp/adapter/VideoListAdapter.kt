@@ -1,10 +1,10 @@
 package com.danmurphyy.shortsapp.adapter
 
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -14,12 +14,13 @@ import com.danmurphyy.shortsapp.databinding.VideoItemRowBinding
 import com.danmurphyy.shortsapp.model.UserModel
 import com.danmurphyy.shortsapp.model.VideoModel
 import com.danmurphyy.shortsapp.utils.Constants
+import com.danmurphyy.shortsapp.utils.UiUtils
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
-import com.google.firebase.firestore.toObject
+import com.google.firebase.storage.FirebaseStorage
 
 class VideoListAdapter(options: FirestoreRecyclerOptions<VideoModel>) :
     FirestoreRecyclerAdapter<VideoModel, VideoListAdapter.VideoViewHolder>(options) {
@@ -52,6 +53,7 @@ class VideoListAdapter(options: FirestoreRecyclerOptions<VideoModel>) :
                             intent.putExtra(Constants.ProfileUserId, id)
                             binding.userDetailLayout.context.startActivity(intent)
                         }
+
                     }
                 }
 
@@ -78,6 +80,7 @@ class VideoListAdapter(options: FirestoreRecyclerOptions<VideoModel>) :
                 }
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
