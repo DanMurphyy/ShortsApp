@@ -10,6 +10,7 @@ import com.danmurphyy.shortsapp.model.VideoModel
 import com.danmurphyy.shortsapp.utils.Constants
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +32,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.bottom_menu_profile -> {
-
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    intent.putExtra(Constants.ProfileUserId, FirebaseAuth.getInstance().currentUser?.uid)
+                    startActivity(intent)
                 }
             }
             false

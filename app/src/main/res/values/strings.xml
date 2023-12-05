@@ -15,4 +15,9 @@
     <string name="click_to_upload_video">Click to Upload Video</string>
     <string name="cancel">Cancel</string>
     <string name="post">Post</string>
+    <string name="following">Following</string>
+    <string name="follower">Follower</string>
+    <string name="posts">Posts</string>
+    <string name="_0">0</string>
+    <string name="logout">Logout</string>
 </resources>
